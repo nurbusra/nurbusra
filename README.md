@@ -1,4 +1,4 @@
-[![MasterHead](https://png.pngtree.com/background/20230625/original/pngtree-3d-rendering-of-technology-and-website-development-picture-image_4044017.jpg)
+![MasterHead](https://png.pngtree.com/background/20230625/original/pngtree-3d-rendering-of-technology-and-website-development-picture-image_4044017.jpg)
 <h1 align="center">Hi 👋, I'm Büşra Nur</h1>
 <h3 align="center">I'm a junior web developer</h3>
 
