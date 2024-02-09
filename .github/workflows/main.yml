@@ -13,22 +13,29 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Generate Snake
-        uses: Platane/snk@master
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          github_user_name: nurbusra
-          gif_out_path: dist/github-contribution-grid-snake.gif
-          svg_out_path: dist/github-contribution-grid-snake.svg
+          python-version: 3.x
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt  # Adjust this if you have specific dependencies
+
+      - name: Generate Snake
+        run: |
+          python generate_snake.py  # Replace this with the actual script or command to generate the Snake
 
       - name: Display Git Status
         run: git status
 
-      - name: Push Changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
-          force: true
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add .
+          git commit -m "Generate Snake graph"
+          git push
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.1.3
